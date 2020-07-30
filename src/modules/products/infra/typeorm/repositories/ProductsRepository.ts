@@ -22,11 +22,13 @@ class ProductsRepository implements IProductsRepository {
     name,
     price,
     quantity,
+    image_name,
   }: ICreateProductDTO): Promise<Product> {
     const product = this.ormRepository.create({
       name,
       price,
       quantity,
+      image_url: image_name,
     });
 
     await this.ormRepository.save(product);
@@ -71,7 +73,7 @@ class ProductsRepository implements IProductsRepository {
       }
 
       if (productData.quantity < foundProduct.quantity) {
-        throw new AppError('Insufficient product quantity');
+        throw new AppError('Product quantity not available in stock');
       }
 
       const productUpdated = productData;
@@ -84,6 +86,12 @@ class ProductsRepository implements IProductsRepository {
     await this.ormRepository.save(productsToUpdate);
 
     return productsToUpdate;
+  }
+
+  public async findAll(): Promise<Product[] | undefined> {
+    const products = await this.ormRepository.find();
+
+    return products;
   }
 
   public async save(product: Product): Promise<void> {

@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
+import { Expose } from 'class-transformer';
 
 @Entity('products')
 class Product {
@@ -23,6 +24,9 @@ class Product {
   @Column()
   quantity: number;
 
+  @Column()
+  image_url: string;
+
   @OneToMany(() => OrdersProducts, order_products => order_products.product)
   order_products: OrdersProducts[];
 
@@ -31,6 +35,15 @@ class Product {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'image_url' })
+  getAvatarUrl(): string | null {
+    if (!this.image_url) {
+      return null;
+    }
+
+    return `${process.env.HOST}/files/${this.image_url}`;
+  }
 }
 
 export default Product;

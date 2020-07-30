@@ -9,6 +9,7 @@ interface IRequest {
   name: string;
   price: number;
   quantity: number;
+  image_name: string;
 }
 
 @injectable()
@@ -18,7 +19,12 @@ class CreateProductService {
     private productsRepository: IProductsRepository,
   ) {}
 
-  public async execute({ name, price, quantity }: IRequest): Promise<Product> {
+  public async execute({
+    name,
+    price,
+    quantity,
+    image_name,
+  }: IRequest): Promise<Product> {
     const productExists = await this.productsRepository.findByName(name);
 
     if (productExists) {
@@ -29,6 +35,7 @@ class CreateProductService {
       name,
       price,
       quantity,
+      image_name,
     });
 
     return product;

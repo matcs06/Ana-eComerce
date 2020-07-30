@@ -3,18 +3,29 @@ import { getRepository, Repository } from 'typeorm';
 import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
 import ICreateOrderDTO from '@modules/orders/dtos/ICreateOrderDTO';
 import Order from '../entities/Order';
+import Product from '@modules/products/infra/typeorm/entities/Product';
 
 class OrdersRepository implements IOrdersRepository {
   private ormRepository: Repository<Order>;
+  private productRepository: Repository<Product>;
 
   constructor() {
     this.ormRepository = getRepository(Order);
+    this.productRepository = getRepository(Product);
   }
 
-  public async create({ customer, products }: ICreateOrderDTO): Promise<Order> {
+  public async create({
+    customer_name,
+    customer_address,
+    payment_method,
+    products,
+  }: ICreateOrderDTO): Promise<Order> {
     const order = this.ormRepository.create({
-      customer,
       order_products: products,
+      customer_address,
+      payment_method,
+      customer_name,
+      status: 'open',
     });
 
     await this.ormRepository.save(order);
@@ -30,6 +41,26 @@ class OrdersRepository implements IOrdersRepository {
     });
 
     return order;
+  }
+
+  public async showAllOpenOrders(): Promise<Order[] | undefined> {
+    const orders = await this.ormRepository.find({
+      relations: ['order_products'],
+      where: { status: 'open' },
+    });
+    return orders;
+  }
+
+  public async showAllClosedOrders(): Promise<Order[] | undefined> {
+    const orders = await this.ormRepository.find({
+      relations: ['order_products'],
+      where: { status: 'closed' },
+    });
+    return orders;
+  }
+
+  public async save(order: Order): Promise<void> {
+    await this.ormRepository.save(order);
   }
 }
 

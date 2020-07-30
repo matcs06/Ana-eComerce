@@ -5,4 +5,7 @@ import ICreateOrderDTO from '../dtos/ICreateOrderDTO';
 export default interface IOrdersRepository {
   create(data: ICreateOrderDTO): Promise<Order>;
   findById(id: string): Promise<Order | undefined>;
+  showAllOpenOrders(): Promise<Order[] | undefined>;
+  showAllClosedOrders(): Promise<Order[] | undefined>;
+  save(data: Order): Promise<void>;
 }

@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @types/typeorm
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @types/tsyringe
 
 PATH: 
-  C:\Users\Mat\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Mat\bin;D:\ProgramFiles\Anaconda3;D:\ProgramFiles\Anaconda3\Library\mingw-w64\bin;D:\ProgramFiles\Anaconda3\Library\usr\bin;D:\ProgramFiles\Anaconda3\Library\bin;D:\ProgramFiles\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;C:\Python\Python38\Scripts;C:\Python\Python38;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\Program Files (x86)\Python37-32\Scripts;C:\Program Files (x86)\Python37-32;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\File Viewer Lite\lib\magick;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\program files\d3dgear;C:\program files\d3dgear;C:\Program Files (x86)\Yarn\bin;C:\ADB;C:\Users\Mat\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\Mat\AppData\Local\Programs\Python\Python36;C:\Users\Mat\AppData\Local\hyper\app-3.0.2\resources\bin;C:\cygwin64\bin;C:\Users\Mat\AppData\Local\Programs\Microsoft VS Code\bin;C:\Python27;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\bin;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.;C:\Users\Mat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Mat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\nodejs;C:\Program Files\Microsoft VS Code\bin;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\include;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\extras;C:\Program Files\Docker Toolbox;C:\Users\Mat\AppData\Local\Yarn\bin;C:\Users\Mat\AppData\Local\Yarn\bin;C:\Users\Mat\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  D:\ProgramFiles\Anaconda3;D:\ProgramFiles\Anaconda3\Library\mingw-w64\bin;D:\ProgramFiles\Anaconda3\Library\usr\bin;D:\ProgramFiles\Anaconda3\Library\bin;D:\ProgramFiles\Anaconda3\Scripts;C:\Python27\;C:\Python27\Scripts;C:\Python\Python38\Scripts\;C:\Python\Python38\;C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\File Viewer Lite\lib\magick;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;c:\program files\d3dgear;c:\program files\d3dgear;C:\Program Files (x86)\Yarn\bin\;C:\ADB\;C:\Users\Mat\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Mat\AppData\Local\Programs\Python\Python36\;C:\Users\Mat\AppData\Local\hyper\app-3.0.2\resources\bin;C:\cygwin64\bin;C:\Users\Mat\AppData\Local\Programs\Microsoft VS Code\bin;C:\Python27;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\bin;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.;C:\Users\Mat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Mat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Mat\AppData\Local\hyper\app-3.0.2\resources\bin;C:\cygwin64\bin;C:\Users\Mat\AppData\Local\Programs\Microsoft VS Code\bin;C:\Python27;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\bin;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\include;C:\Users\Mat\Downloads\cudnn-10.0-windows10-x64-v7.6.4.38\cuda\lib;C:\Users\Mat\AppData\Local\Programs\Python\Python36\Scripts;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\extras;C:\Program Files\Docker Toolbox;C:\Users\Mat\AppData\Local\Yarn\bin;C:\Users\Mat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Mat\AppData\Local\Yarn\bin;C:\Users\Mat\AppData\Roaming\npm
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2ftypeorm: Not found
+  Error: https://registry.yarnpkg.com/@types%2ftsyringe: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
       at Request.emit (events.js:315:20)
@@ -39,8 +39,10 @@ npm manifest:
       "test": "cross-env NODE_ENV=test jest"
     },
     "dependencies": {
+      "class-transformer": "^0.2.3",
       "cors": "^2.8.5",
       "cross-env": "^7.0.2",
+      "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
       "pg": "^8.1.0",
@@ -1316,6 +1318,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
     integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
   
+  class-transformer@^0.2.3:
+    version "0.2.3"
+    resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.2.3.tgz#598c92ca71dcca73f91ccb875d74a3847ccfa32d"
+    integrity sha512-qsP+0xoavpOlJHuYsQJsN58HXSl8Jvveo+T37rEvCEeRfMWoytAyR0Ua/YsFgpM6AZYZ/og2PJwArwzJl1aXtQ==
+  
   class-utils@^0.3.5:
     version "0.3.6"
     resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -1700,6 +1707,11 @@ Lockfile:
     version "6.2.0"
     resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
     integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
+  
+  dotenv@^8.2.0:
+    version "8.2.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+    integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   
   dynamic-dedupe@^0.3.0:
     version "0.3.0"

@@ -8,9 +8,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Exclude } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 
-import Customer from '@modules/customers/infra/typeorm/entities/Customer';
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
 
 @Entity('orders')
@@ -18,15 +17,26 @@ class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Customer, { eager: true })
-  @JoinColumn({ name: 'customer_id' })
-  customer: Customer;
+  @Column()
+  customer_name: string;
+
+  @Column()
+  customer_address: string;
+
+  @Column()
+  payment_method: string;
 
   @OneToMany(() => OrdersProducts, order_products => order_products.order, {
     cascade: true,
     eager: true,
   })
   order_products: OrdersProducts[];
+
+  @Column()
+  status: string;
+
+  @Column('decimal')
+  total: number;
 
   @CreateDateColumn()
   created_at: Date;

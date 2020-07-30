@@ -10,6 +10,7 @@ import {
 
 import Order from '@modules/orders/infra/typeorm/entities/Order';
 import Product from '@modules/products/infra/typeorm/entities/Product';
+import { Expose } from 'class-transformer';
 
 @Entity('orders_products')
 class OrdersProducts {
@@ -25,6 +26,9 @@ class OrdersProducts {
   })
   @JoinColumn({ name: 'product_id' })
   product: Product;
+
+  @Column()
+  name: string;
 
   @Column()
   product_id: string;

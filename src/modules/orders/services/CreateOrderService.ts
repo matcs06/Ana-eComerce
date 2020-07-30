@@ -3,7 +3,6 @@ import { inject, injectable } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
-import ICustomersRepository from '@modules/customers/repositories/ICustomersRepository';
 import Order from '../infra/typeorm/entities/Order';
 import IOrdersRepository from '../repositories/IOrdersRepository';
 
@@ -13,7 +12,9 @@ interface IProduct {
 }
 
 interface IRequest {
-  customer_id: string;
+  customer_name: string;
+  customer_address: string;
+  payment_method: string;
   products: IProduct[];
 }
 
@@ -25,18 +26,14 @@ class CreateOrderService {
 
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository,
-
-    @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository,
   ) {}
 
-  public async execute({ customer_id, products }: IRequest): Promise<Order> {
-    const customerExists = await this.customersRepository.findById(customer_id);
-
-    if (!customerExists) {
-      throw new AppError('Customer does not exists');
-    }
-
+  public async execute({
+    customer_name,
+    customer_address,
+    payment_method,
+    products,
+  }: IRequest): Promise<Order> {
     const givenProductIds = products.map(product => {
       return { id: product.id };
     });
@@ -44,7 +41,6 @@ class CreateOrderService {
     const existentProducts = await this.productsRepository.findAllById(
       givenProductIds,
     );
-
     if (!existentProducts.length) {
       throw new AppError('Could not find any products with the given ids');
     }
@@ -64,7 +60,9 @@ class CreateOrderService {
     await this.productsRepository.updateQuantity(products);
 
     const order = await this.ordersRepository.create({
-      customer: customerExists,
+      customer_address,
+      customer_name,
+      payment_method,
       products: productsData,
     });
     return order;

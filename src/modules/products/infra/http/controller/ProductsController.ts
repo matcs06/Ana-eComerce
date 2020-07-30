@@ -7,10 +7,16 @@ import { classToClass } from 'class-transformer';
 export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, quantity, price } = request.body;
-
+    const { filename } = request.file;
+    console.log(filename);
     const createProduct = container.resolve(CreateProductService);
 
-    const product = await createProduct.execute({ name, quantity, price });
+    const product = await createProduct.execute({
+      name,
+      quantity,
+      price,
+      image_name: filename,
+    });
 
     return response.json(classToClass(product));
   }
