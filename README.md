@@ -1,12 +1,13 @@
-#Rotas da api:
+<h1>Rotas da api</h1>:
 
-##Usuário:
+<h3>Usuário:</h3>
 
 - [x] Criação do usuário: POST host/users
 
 - [x] Sessão de um usuário: POST host/users/session
 
-##Produtos
+
+<h3>Produtos:</h3>
 
 - [x] Criação de produtos: POST host/products
 
@@ -18,7 +19,8 @@
 
 - [x] Listagem de produtos com estoque disponivel: GET host/products/available (para mobile)
 
-##Orders
+
+<h3>Orders:</h3>
 
 - [x] Criação de orders: POST host/orders
 
