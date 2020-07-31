@@ -6,7 +6,6 @@
 
 - [x] Sessão de um usuário: POST host/users/session
 
-
 <h3>Produtos:</h3>
 
 - [x] Criação de produtos: POST host/products
@@ -18,7 +17,6 @@
 - [x] Listagem de um produto especifico: GET host/products/:id
 
 - [x] Listagem de produtos com estoque disponivel: GET host/products/available (para mobile)
-
 
 <h3>Orders:</h3>
 
@@ -36,4 +34,6 @@
 
 - [x] Fazer com que a listagem de produtos e criação de pedidos não precise de autenticação
 
-- [ ] Fazer com que a listagem de pedidos mostre o nome do produto.
+- [x] Fazer com que a listagem de pedidos mostre o nome do produto.
+
+- [x] Mostrar um erro ao fechar uma ordem já fechada

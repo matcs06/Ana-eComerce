@@ -23,12 +23,10 @@ class OrdersProducts {
 
   @ManyToOne(() => Product, product => product.order_products, {
     cascade: true,
+    eager: true,
   })
   @JoinColumn({ name: 'product_id' })
   product: Product;
-
-  @Column()
-  name: string;
 
   @Column()
   product_id: string;
