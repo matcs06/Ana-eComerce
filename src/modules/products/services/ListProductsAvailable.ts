@@ -5,7 +5,7 @@ import IProductsRepository from '../repositories/IProductsRepository';
 import AppError from '@shared/errors/AppError';
 
 @injectable()
-class FindAllOrdersService {
+class ListProductsAvailableService {
   constructor(
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository,
@@ -26,4 +26,4 @@ class FindAllOrdersService {
   }
 }
 
-export default FindAllOrdersService;
+export default ListProductsAvailableService;

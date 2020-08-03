@@ -36,4 +36,8 @@
 
 - [x] Fazer com que a listagem de pedidos mostre o nome do produto.
 
-- [x] Mostrar um erro ao fechar uma ordem já fechada
+- [x] Mostrar um erro ao tentar fechar uma ordem já fechada
+
+<h1>Criação de usuário</h1>
+- [] Pensar em uma forma de criar chaves de autenticação
+- [] Implementar autenticação co

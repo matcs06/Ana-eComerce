@@ -5,7 +5,7 @@ import IOrdersRepository from '../repositories/IOrdersRepository';
 import AppError from '@shared/errors/AppError';
 
 @injectable()
-class FindAllOrdersService {
+class FindAllClosedOrdersService {
   constructor(
     @inject('OrdersRepository')
     private ordersRepository: IOrdersRepository,
@@ -22,4 +22,4 @@ class FindAllOrdersService {
   }
 }
 
-export default FindAllOrdersService;
+export default FindAllClosedOrdersService;

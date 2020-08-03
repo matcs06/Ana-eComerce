@@ -7,7 +7,7 @@ import IProductsRepository from '../repositories/IProductsRepository';
 import IUpdateProductsQuantityDTO from '../dtos/IUpdateProductsQuantityDTO';
 
 @injectable()
-class CreateProductService {
+class AddProductQuantityService {
   constructor(
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository,
@@ -32,4 +32,4 @@ class CreateProductService {
   }
 }
 
-export default CreateProductService;
+export default AddProductQuantityService;
