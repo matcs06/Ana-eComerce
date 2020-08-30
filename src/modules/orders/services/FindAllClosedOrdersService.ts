@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
+import AppError from '@shared/errors/AppError';
 import Order from '../infra/typeorm/entities/Order';
 import IOrdersRepository from '../repositories/IOrdersRepository';
-import AppError from '@shared/errors/AppError';
 
 @injectable()
 class FindAllClosedOrdersService {
