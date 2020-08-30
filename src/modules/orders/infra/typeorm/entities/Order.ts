@@ -5,10 +5,7 @@ import {
   UpdateDateColumn,
   OneToMany,
   Column,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-import { Exclude, Expose } from 'class-transformer';
 
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
 

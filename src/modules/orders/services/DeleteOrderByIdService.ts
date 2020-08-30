@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-class CloseOrderService {
+class DeleteOrderById {
   constructor(
     @inject('OrdersRepository')
     private ordersRepository: IOrdersRepository,
@@ -21,16 +21,8 @@ class CloseOrderService {
       throw new AppError('Order not found');
     }
 
-    if (order.status === 'closed') {
-      throw new AppError('This order has already been closed');
-    }
-
-    order.status = 'closed';
-
-    const updatedOrder = order;
-
-    await this.ordersRepository.save(updatedOrder);
+    this.ordersRepository.deleteOrderById(id);
   }
 }
 
-export default CloseOrderService;
+export default DeleteOrderById;

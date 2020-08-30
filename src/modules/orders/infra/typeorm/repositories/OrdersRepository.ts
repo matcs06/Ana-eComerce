@@ -2,11 +2,12 @@ import { getRepository, Repository } from 'typeorm';
 
 import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
 import ICreateOrderDTO from '@modules/orders/dtos/ICreateOrderDTO';
-import Order from '../entities/Order';
 import Product from '@modules/products/infra/typeorm/entities/Product';
+import Order from '../entities/Order';
 
 class OrdersRepository implements IOrdersRepository {
   private ormRepository: Repository<Order>;
+
   private productRepository: Repository<Product>;
 
   constructor() {
@@ -57,6 +58,10 @@ class OrdersRepository implements IOrdersRepository {
       where: { status: 'closed' },
     });
     return orders;
+  }
+
+  public async deleteOrderById(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
   }
 
   public async save(order: Order): Promise<void> {
