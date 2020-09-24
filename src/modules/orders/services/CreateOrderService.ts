@@ -15,6 +15,7 @@ interface IRequest {
   customer_name: string;
   customer_address: string;
   payment_method: string;
+  phone: string;
   products: IProduct[];
 }
 
@@ -32,6 +33,7 @@ class CreateOrderService {
     customer_name,
     customer_address,
     payment_method,
+    phone,
     products,
   }: IRequest): Promise<Order> {
     const givenProductIds = products.map(product => {
@@ -57,12 +59,17 @@ class CreateOrderService {
       };
     });
 
+    if (!phone) {
+      throw new AppError('Phone number must be specified');
+    }
+
     await this.productsRepository.updateQuantity(products);
 
     const order = await this.ordersRepository.create({
       customer_address,
       customer_name,
       payment_method,
+      phone,
       products: productsData,
     });
     return order;

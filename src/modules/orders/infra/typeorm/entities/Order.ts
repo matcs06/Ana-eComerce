@@ -23,6 +23,9 @@ class Order {
   @Column()
   payment_method: string;
 
+  @Column()
+  phone: string;
+
   @OneToMany(() => OrdersProducts, order_products => order_products.order, {
     cascade: true,
     eager: true,
@@ -31,9 +34,6 @@ class Order {
 
   @Column()
   status: string;
-
-  @Column('decimal')
-  total: number;
 
   @CreateDateColumn()
   created_at: Date;

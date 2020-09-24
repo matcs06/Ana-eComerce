@@ -19,12 +19,14 @@ class OrdersRepository implements IOrdersRepository {
     customer_name,
     customer_address,
     payment_method,
+    phone,
     products,
   }: ICreateOrderDTO): Promise<Order> {
     const order = this.ormRepository.create({
       order_products: products,
       customer_address,
       payment_method,
+      phone,
       customer_name,
       status: 'open',
     });

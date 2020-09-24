@@ -10,6 +10,7 @@ export default class OrdersController {
       customer_name,
       customer_address,
       payment_method,
+      phone,
       products,
     } = request.body;
 
@@ -19,6 +20,7 @@ export default class OrdersController {
       customer_address,
       customer_name,
       payment_method,
+      phone,
       products,
     });
 
