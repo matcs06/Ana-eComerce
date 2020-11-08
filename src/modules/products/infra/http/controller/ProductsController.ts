@@ -6,7 +6,7 @@ import { classToClass } from 'class-transformer';
 
 export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, quantity, price } = request.body;
+    const { name, quantity, price, description } = request.body;
     const { filename } = request.file;
     const createProduct = container.resolve(CreateProductService);
 
@@ -14,6 +14,7 @@ export default class ProductsController {
       name,
       quantity,
       price,
+      description,
       image_name: filename,
     });
 

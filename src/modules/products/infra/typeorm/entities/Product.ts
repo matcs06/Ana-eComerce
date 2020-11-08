@@ -25,6 +25,9 @@ class Product {
   quantity: number;
 
   @Column()
+  description: string;
+
+  @Column()
   image_url: string;
 
   @OneToMany(() => OrdersProducts, order_products => order_products.product)

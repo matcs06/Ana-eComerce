@@ -8,6 +8,7 @@ import IProductsRepository from '../repositories/IProductsRepository';
 interface IRequest {
   name: string;
   price: number;
+  description: string;
   quantity: number;
   image_name: string;
 }
@@ -22,6 +23,7 @@ class CreateProductService {
   public async execute({
     name,
     price,
+    description,
     quantity,
     image_name,
   }: IRequest): Promise<Product> {
@@ -34,6 +36,7 @@ class CreateProductService {
     const product = await this.productsRepository.create({
       name,
       price,
+      description,
       quantity,
       image_name,
     });

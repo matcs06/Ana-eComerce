@@ -21,12 +21,14 @@ class ProductsRepository implements IProductsRepository {
   public async create({
     name,
     price,
+    description,
     quantity,
     image_name,
   }: ICreateProductDTO): Promise<Product> {
     const product = this.ormRepository.create({
       name,
       price,
+      description,
       quantity,
       image_url: image_name,
     });
