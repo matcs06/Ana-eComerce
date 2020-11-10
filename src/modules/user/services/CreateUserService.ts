@@ -5,6 +5,8 @@ import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
+import Credentials from '../../../credential/index';
+
 interface IRequest {
   name: string;
   email: string;
@@ -30,7 +32,7 @@ class CreateCustomerService {
   }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
-    if (admin_key !== process.env.ADMIN_KEY) {
+    if (admin_key !== Credentials.createUserKey) {
       throw new AppError('You must have a valid key to create a new user');
     }
 
