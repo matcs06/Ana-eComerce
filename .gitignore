@@ -8,3 +8,4 @@ temp/
 uploads/
 ormconfig.json
 dist
+/src/uploads/
