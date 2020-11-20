@@ -99,6 +99,10 @@ class ProductsRepository implements IProductsRepository {
   public async save(product: Product): Promise<void> {
     await this.ormRepository.save(product);
   }
+
+  public async deleteById(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
+  }
 }
 
 export default ProductsRepository;

@@ -1,10 +1,11 @@
 /* eslint-disable no-empty */
-const fs = require('fs');
 import path from 'path';
 import aws, { S3 } from 'aws-sdk';
 import uploadConfig from '@config/upload';
 import mime from 'mime';
 import IStorageProvider from '../models/ISttoregeProvider';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs');
 
 class DiskStorageProvider implements IStorageProvider {
   private client: S3;

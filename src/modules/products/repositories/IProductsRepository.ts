@@ -15,4 +15,5 @@ export default interface IProductsRepository {
   updateQuantity(products: IUpdateProductsQuantityDTO[]): Promise<Product[]>;
   findAll(): Promise<Product[] | undefined>;
   save(product: Product): Promise<void>;
+  deleteById(id: string): Promise<void>;
 }

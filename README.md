@@ -18,6 +18,8 @@
 
 - [x] Listagem de produtos com estoque disponivel: GET host/products/available (para mobile)
 
+- [x] Apagar um produto por ID: DELETE host/products/:id (para mobile)
+
 <h3>Orders:</h3>
 
 - [x] Criação de orders: POST host/orders
