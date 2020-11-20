@@ -28,7 +28,14 @@ class DeleteProductByIdService {
       throw new AppError('Product not found');
     } else {
       const immagePath = path.resolve(uploadPath, product?.image_url);
-      await fs.promises.unlink(immagePath);
+      if (immagePath) {
+        try {
+          await fs.promises.unlink(immagePath);
+        } catch (error) {
+          this.productRepository.deleteById(id);
+          throw new AppError('Not image found only product deleted');
+        }
+      }
     }
 
     this.productRepository.deleteById(id);
