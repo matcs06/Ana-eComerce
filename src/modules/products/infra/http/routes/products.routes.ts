@@ -32,10 +32,10 @@ productsRouter.post(
   updateProductsController.create,
 );
 
-productsRouter.get('/', findAllProducts.show);
+productsRouter.get('/', ensureAuthenticated, findAllProducts.show);
 productsRouter.get('/available', listAvailableProducts.show);
 productsRouter.get('/:id', findOneProducById.show);
 
-productsRouter.delete('/:id', deleteProductById.execute);
+productsRouter.delete('/:id', ensureAuthenticated, deleteProductById.execute);
 
 export default productsRouter;

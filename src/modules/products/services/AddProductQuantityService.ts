@@ -20,10 +20,6 @@ class AddProductQuantityService {
       throw new AppError('There is not a product with this id');
     }
 
-    if (product.quantity <= 0) {
-      throw new AppError('The quantity has to be greater than 0');
-    }
-
     productToAdd.quantity += product.quantity;
 
     await this.productsRepository.save(productToAdd);
