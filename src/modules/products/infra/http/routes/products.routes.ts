@@ -36,6 +36,6 @@ productsRouter.get('/', ensureAuthenticated, findAllProducts.show);
 productsRouter.get('/available', listAvailableProducts.show);
 productsRouter.get('/:id', findOneProducById.show);
 
-productsRouter.delete('/:id', ensureAuthenticated, deleteProductById.execute);
+productsRouter.delete('/:id', deleteProductById.execute);
 
 export default productsRouter;
